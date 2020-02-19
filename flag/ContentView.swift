@@ -39,7 +39,7 @@ struct ContentView: View {
         var message = "Won \(timesWon) / \(timesPlayed)"
         
         if timesPlayed >= 1 {
-            message = timesWon > 1 ? message : "Keep trying mate"
+            message = timesWon >= 1 ? message : "Keep trying mate"
         } else {
             message = "Get started. Tap the correct flag"
         }
@@ -64,7 +64,7 @@ struct ContentView: View {
                     }
                         
                     .alert(isPresented: self.$isShowingAlert) {
-                        Alert(title: Text(self.yourScore), message: Text("Your Score is ???"), dismissButton: .default(Text("Ok")){
+                        Alert(title: Text("Your choice"), message: Text(self.yourScore), dismissButton: .default(Text("Ok")){
                             self.askQuestion()
                             })
                     }
